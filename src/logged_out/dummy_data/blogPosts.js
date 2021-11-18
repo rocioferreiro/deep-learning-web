@@ -164,7 +164,7 @@ const sexto = (
                         <TableCell component="th" scope="row">
                             10
                         </TableCell>
-                        <TableCell align="right">a number</TableCell>
+                        <TableCell align="right"> 69.49% </TableCell>
                     </TableRow>
                     <TableRow
                         key={11}
@@ -173,7 +173,16 @@ const sexto = (
                         <TableCell component="th" scope="row">
                             11
                         </TableCell>
-                        <TableCell align="right">a number</TableCell>
+                        <TableCell align="right"> 72.03% </TableCell>
+                    </TableRow>
+                    <TableRow
+                        key={12}
+                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                        <TableCell component="th" scope="row">
+                            12
+                        </TableCell>
+                        <TableCell align="right"> 70.33% </TableCell>
                     </TableRow>
                 </TableBody>
             </Table>

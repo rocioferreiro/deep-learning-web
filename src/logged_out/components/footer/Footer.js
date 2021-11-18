@@ -163,6 +163,9 @@ function Footer(props) {
             <Typography style={{ color: "#8f9296" }} paragraph>
               Modelo de Deep Learning que predice que tipo de lesion de la piel es aquel que se sube a esta página.
             </Typography>
+            <Typography style={{ color: "#8f9296" }} paragraph>
+              Pedro Araoz, Rocio Ferreiro y Khalil Stessens
+            </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (
                 <Box key={index} mr={index !== socialIcons.length - 1 ? 1 : 0}>

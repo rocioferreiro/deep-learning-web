@@ -108,19 +108,19 @@ const quinto = (
             Una vez solucionadas todas estas problemáticas, el modelo estaba
             listo para hacer validaciones en serio, por lo que aplicamos una
             matriz de confusión sobre un dataset de validación, y analizamos
-            los resultados de dos formas diferentes: el top1 y el top2.
+            los resultados de dos formas diferentes: el top 1 y el top 2.
             Viendo las matrices de confusión nos dimos cuenta que, por muy poca
             diferencia de peso, confundía al melanoma con nevus en todos los casos,
             por lo que planteamos dos opciones: entrenar el modelo nuevamente con
             otro número de epochs o interpretar la respuesta del modelo mediante
-            el top2.
+            el top 2.
         </Typography>
         <Typography paragraph>
 
             Cuando entrenamos el modelo con más epochs que antes, el overfitting era
             inminente, y la accuracy disminuye considerablemente, por lo que probamos
             usar menos epochs, pero el resultado también era peor, por lo que
-            determinamos que 10 era el número exacto de epochs.
+            determinamos que 11 era el número exacto de epochs.
             Nuestra única alternativa, era interpretar de otra manera la respuesta,
             por lo que aprovechando que los errores del modelo eran debido a una muy
             baja diferencia entre los dos labels más probables, decidimos hacer lo

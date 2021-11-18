@@ -14,7 +14,7 @@ const styles = theme => ({
   }
 });
 
-function shadeColor(hex, percent) {
+export function shadeColor(hex, percent) {
   const f = parseInt(hex.slice(1), 16);
 
   const t = percent < 0 ? 0 : 255;

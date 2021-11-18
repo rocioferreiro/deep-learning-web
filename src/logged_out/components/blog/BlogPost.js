@@ -4,7 +4,6 @@ import classNames from "classnames";
 import format from "date-fns/format";
 import { Grid, Typography, Card, Box, withStyles } from "@material-ui/core";
 import BlogCard from "./BlogCard";
-import ShareButton from "../../../shared/components/ShareButton";
 import ZoomImage from "../../../shared/components/ZoomImage";
 import smoothScrollTop from "../../../shared/functions/smoothScrollTop";
 
@@ -35,7 +34,7 @@ function BlogPost(props) {
   const { classes, date, title, src, content, otherArticles } = props;
 
   useEffect(() => {
-    document.title = `WaVer - ${title}`;
+    document.title = `UA FI - ${title}`;
     smoothScrollTop();
   }, [title]);
 
@@ -54,7 +53,7 @@ function BlogPost(props) {
                   <b>{title}</b>
                 </Typography>
                 <Typography variant="body1" color="textSecondary">
-                  {format(new Date(date * 1000), "PPP", {
+                  {format(date, "PPP", {
                     awareOfUnicodeTokens: true,
                   })}
                 </Typography>
@@ -62,33 +61,12 @@ function BlogPost(props) {
               <ZoomImage className={classes.img} src={src} alt="" />
               <Box p={3}>
                 {content}
-                <Box pt={2}>
-                  <Grid spacing={1} container>
-                    {["Facebook", "Twitter", "Reddit", "Tumblr"].map(
-                      (type, index) => (
-                        <Grid item key={index}>
-                          <ShareButton
-                            type={type}
-                            title="React SaaS Template"
-                            description="I found an awesome template for an webapp using React!"
-                            disableElevation
-                            variant="contained"
-                            className="text-white"
-                            classes={{
-                              label: "text-white",
-                            }}
-                          />
-                        </Grid>
-                      )
-                    )}
-                  </Grid>
-                </Box>
               </Box>
             </Card>
           </Grid>
           <Grid item md={3}>
             <Typography variant="h6" paragraph>
-              Other articles
+              Otros artículos
             </Typography>
             {otherArticles.map((blogPost) => (
               <Box key={blogPost.id} mb={3}>

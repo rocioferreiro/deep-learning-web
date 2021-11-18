@@ -8,14 +8,10 @@ import {
   Hidden,
   withStyles,
   withWidth,
-  isWidthUp,
-  TextField
+  isWidthUp
 } from "@material-ui/core";
-import PhoneIcon from "@material-ui/icons/Phone";
-import MailIcon from "@material-ui/icons/Mail";
 import WaveBorder from "../../../shared/components/WaveBorder";
 import transitions from "@material-ui/core/styles/transitions";
-import ColoredButton from "../../../shared/components/ColoredButton";
 
 const styles = theme => ({
   footerInner: {
@@ -75,17 +71,6 @@ const styles = theme => ({
   }
 });
 
-const infos = [
-  {
-    icon: <PhoneIcon />,
-    description: "+1 555 123456"
-  },
-  {
-    icon: <MailIcon />,
-    description: "support@company.com"
-  }
-];
-
 const socialIcons = [
   {
     icon: (
@@ -101,7 +86,7 @@ const socialIcons = [
       </svg>
     ),
     label: "Github",
-    href: "https://github.com/dunky11/react-saas-template"
+    href: "https://github.com/kuhamaven/DeepLearning"
   },
   {
     icon: (
@@ -165,69 +150,18 @@ function Footer(props) {
       <div className={classes.footerInner}>
         <Grid container spacing={isWidthUp("md", width) ? 10 : 5}>
           <Grid item xs={12} md={6} lg={4}>
-            <form>
-              <Box display="flex" flexDirection="column">
-                <Box mb={1}>
-                  <TextField
-                    variant="outlined"
-                    multiline
-                    placeholder="Get in touch with us"
-                    inputProps={{ "aria-label": "Get in Touch" }}
-                    InputProps={{
-                      className: classes.whiteBg
-                    }}
-                    rows={4}
-                    fullWidth
-                    required
-                  />
-                </Box>
-                <ColoredButton
-                  color={theme.palette.common.white}
-                  variant="outlined"
-                  type="submit"
-                >
-                  Send Message
-                </ColoredButton>
-              </Box>
-            </form>
+            <img alt={'alt'} src={`${process.env.PUBLIC_URL}/images/logged_out/ua-ingenieria-color-logo.png`}/>
           </Grid>
           <Hidden mdDown>
             <Grid item xs={12} md={6} lg={4}>
-              <Box display="flex" justifyContent="center">
-                <div>
-                  {infos.map((info, index) => (
-                    <Box display="flex" mb={1} key={index}>
-                      <Box mr={2}>
-                        <IconButton
-                          className={classes.infoIcon}
-                          tabIndex={-1}
-                          disabled
-                        >
-                          {info.icon}
-                        </IconButton>
-                      </Box>
-                      <Box
-                        display="flex"
-                        flexDirection="column"
-                        justifyContent="center"
-                      >
-                        <Typography variant="h6" className="text-white">
-                          {info.description}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  ))}
-                </div>
-              </Box>
             </Grid>
           </Hidden>
           <Grid item xs={12} md={6} lg={4}>
             <Typography variant="h6" paragraph className="text-white">
-              About the Company
+              Projecto Universidad Austral
             </Typography>
             <Typography style={{ color: "#8f9296" }} paragraph>
-              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-              euismod convallis velit, eu auctor lacus vehicula sit amet.
+              Modelo de Deep Learning que predice que tipo de lesion de la piel es aquel que se sube a esta página.
             </Typography>
             <Box display="flex">
               {socialIcons.map((socialIcon, index) => (
@@ -236,6 +170,7 @@ function Footer(props) {
                     aria-label={socialIcon.label}
                     className={classes.socialIcon}
                     href={socialIcon.href}
+                    target="_blank"
                   >
                     {socialIcon.icon}
                   </IconButton>

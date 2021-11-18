@@ -1,99 +1,108 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import { Grid, Typography, isWidthUp, withWidth } from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
-import BuildIcon from "@material-ui/icons/Build";
-import ComputerIcon from "@material-ui/icons/Computer";
-import BarChartIcon from "@material-ui/icons/BarChart";
-import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
-import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
-import CloudIcon from "@material-ui/icons/Cloud";
-import MeassageIcon from "@material-ui/icons/Message";
-import CancelIcon from "@material-ui/icons/Cancel";
+import WarningIcon from '@mui/icons-material/Warning';
 import calculateSpacing from "./calculateSpacing";
 import FeatureCard from "./FeatureCard";
 
 const iconSize = 30;
 
-const features = [
+export const lesions = [
   {
-    color: "#00C853",
-    headline: "Feature 1",
+    color: "#820202",
+    name: "melanoma",
+    headline: "Melanoma",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <BuildIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "0",
-    smDelay: "0"
-  },
-  {
-    color: "#6200EA",
-    headline: "Feature 2",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CalendarTodayIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "200",
-    smDelay: "200"
-  },
-  {
-    color: "#0091EA",
-    headline: "Feature 3",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <MeassageIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "400",
-    smDelay: "0"
-  },
-  {
-    color: "#d50000",
-    headline: "Feature 4",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <ComputerIcon style={{ fontSize: iconSize }} />,
+        "El tipo más grave de cáncer de piel.\n" +
+        "El melanoma ocurre cuando las células productoras de pigmento que dan color a la piel se vuelven cancerosas.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "0",
     smDelay: "200"
   },
   {
-    color: "#DD2C00",
-    headline: "Feature 5",
+    color: "#c80000",
+    name: 'basal cell carcinoma',
+    headline: "Basalioma",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <BarChartIcon style={{ fontSize: iconSize }} />,
+        "Tipo de cáncer de piel que comienza en las células basales.\n" +
+        "Las células basales producen nuevas células de la piel a medida que las anteriores mueren. Limitar la exposición al sol puede prevenir que estas células se tornen cancerosas.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "200",
+    smDelay: "200"
+  },
+  {
+    color: "#c80000",
+    name: 'squamous cell carcinoma',
+    headline: "Carcinoma de Células Escamosas",
+    text:
+        "El carcinoma de células escamosas de la piel es una forma común de cáncer de piel que se desarrolla en las células escamosas que componen las capas media y externa de la piel. El carcinoma de células escamosas de la piel generalmente no es mortal, pero puede ser agresivo.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
+    mdDelay: "200",
+    smDelay: "200"
+  },
+  {
+    color: "#c85700",
+    name: 'actinic keratosis',
+    headline: "Queratosis actínica",
+    text:
+      "Zona áspera y escamosa de la piel ocasionada por años de exposición solar. Se debe tratar por un médico, es una condición crónica que se puede convertir en cancer.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
+    mdDelay: "0",
     smDelay: "0"
   },
   {
-    color: "#64DD17",
-    headline: "Feature 6",
+    color: "#d6dd17",
+    name: 'pigmented benign keratosis',
+    headline: "Queratosis benigna",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <HeadsetMicIcon style={{ fontSize: iconSize }} />,
+        "Es una dermatosis relativamente frecuente, con presentación clínica en determinadas ocasiones, que puede llegar a la confusión con el melanoma. Se plantea que puede ser una lesión benigna en regresión. La dermatoscopia es de gran utilidad para la orientación diagnóstica.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "400",
     smDelay: "200"
   },
+
   {
-    color: "#304FFE",
-    headline: "Feature 7",
+    color: "#55dd00",
+    name: 'dermatofibroma',
+    headline: "Dermatofibroma",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CloudIcon style={{ fontSize: iconSize }} />,
+      "\n" +
+        "Los dermatofibromas son bultos pequeños de color rojo a marrón que se deben a una acumulación de colágeno, una proteína fabricada por las células que residen en el tejido blando bajo la piel. Es una condición muy común en la dermatología. Es benigno",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
+    mdDelay: "400",
+    smDelay: "0"
+  },
+
+  {
+    color: "#55dd00",
+    name: 'nevus',
+    headline: "Nevus",
+    text:
+      "Los nevus son los “lunares”. Se producen porque se multiplican las células de la piel que producen la melanina. La melanina es la sustancia que da color a la piel y a las mucosas.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
+    mdDelay: "200",
+    smDelay: "0"
+  },
+
+  {
+    color: "#55dd00",
+    name: 'seborrheic keratosis',
+    headline: "Queratosis seborreica",
+    text:
+      "Afección cutánea benigna que se manifiesta como una mancha cerosa marrón, negra o morena.\n" +
+        "La queratosis seborreica es una de las neoplasias de la piel no cancerosas más comunes en los adultos de edad avanzada",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "0",
     smDelay: "0"
   },
+
   {
-    color: "#C51162",
-    headline: "Feature 8",
+    color: "#55dd00",
+    name: 'vascular lesion',
+    headline: "Lesión Vascular",
     text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CodeIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "200",
-    smDelay: "200"
-  },
-  {
-    color: "#00B8D4",
-    headline: "Feature 9",
-    text:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et.",
-    icon: <CancelIcon style={{ fontSize: iconSize }} />,
+      "Las lesiones vasculares son anomalías relativamente comunes de la piel y los tejidos subyacentes, más comúnmente conocidas como marcas de nacimiento.",
+    icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "400",
     smDelay: "0"
   }
@@ -105,11 +114,11 @@ function FeatureSection(props) {
     <div style={{ backgroundColor: "#FFFFFF" }}>
       <div className="container-fluid lg-p-top">
         <Typography variant="h3" align="center" className="lg-mg-bottom">
-          Features
+          Tipos de Lesiones
         </Typography>
         <div className="container-fluid">
           <Grid container spacing={calculateSpacing(width)}>
-            {features.map(element => (
+            {lesions.map(element => (
               <Grid
                 item
                 xs={6}

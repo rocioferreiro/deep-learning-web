@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react";
+import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -13,7 +13,6 @@ import {
   isWidthUp,
 } from "@material-ui/core";
 import WaveBorder from "../../../shared/components/WaveBorder";
-import ZoomImage from "../../../shared/components/ZoomImage";
 import ImageUpload from "./ImageUpload";
 
 const styles = (theme) => ({
@@ -113,8 +112,8 @@ const styles = (theme) => ({
 });
 
 function HeadSection(props) {
-  const { classes, theme, width } = props;
-  const [file, setFile] = useState(null);
+  const { classes, theme, width, file, setFile, handleClick, selected } = props;
+
 
   return (
     <Fragment>
@@ -152,6 +151,7 @@ function HeadSection(props) {
                             aislado está el lunar mejor serán los resultados
                           </Typography>
                         </Box>
+                        <a href={!file? '#': '#results'} style={{textDecoration: 'none'}}>
                         <Button
                           variant="contained"
                           color="secondary"
@@ -159,11 +159,11 @@ function HeadSection(props) {
                           disabled={!file}
                           className={classes.extraLargeButton}
                           classes={{ label: classes.extraLargeButtonLabel }}
-                          onClick={() => {
-                            //TODO
-                          }}>
+                          onClick={handleClick} selected={selected}>
                           Obtener Resultados
                         </Button>
+                        </a>
+
                       </div>
                     </Box>
                   </Grid>

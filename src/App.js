@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import theme from "./theme";
 import GlobalStyles from "./GlobalStyles";
 import Pace from "./shared/components/Pace";
+import './app.css';
 
 const LoggedOutComponent = lazy(() => import("./logged_out/components/Main"));
 

@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import { Typography, Box, withStyles } from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
+import {lesions} from "./FeatureSection";
+import shadeColor from "../../../shared/functions/shadeColor";
 
 const styles = theme => ({
   card: {
@@ -11,7 +12,7 @@ const styles = theme => ({
     paddingRight: theme.spacing(4),
     marginTop: theme.spacing(2),
     border: `3px solid ${theme.palette.primary.dark}`,
-    borderRadius: theme.shape.borderRadius * 2
+    borderRadius: theme.shape.borderRadius * 2,
   },
   cardHightlighted: {
     paddingTop: theme.spacing(8),
@@ -26,50 +27,60 @@ const styles = theme => ({
     }
   },
   title: {
-    color: theme.palette.primary.main
+    color: "#4b4b4b"
   }
 });
 
 function PriceCard(props) {
-  const { classes, theme, title, pricing, features, highlighted } = props;
-  return (
-    <div className={highlighted ? classes.cardHightlighted : classes.card}>
+  const { classes, order, title, features, highlighted } = props;
+  const [lesion, setLesion] = useState();
+
+  useEffect(() => {
+    setLesion(lesions.filter(i => i.name === title)[0])
+  }, [title])
+  return ( lesion ?
+    <div className={highlighted ? classes.cardHightlighted : classes.card}
+         style={highlighted ?
+          {backgroundColor: shadeColor(lesion.color, 0.5), borderColor: lesion.color}
+             :
+          {borderColor: lesion.color}
+         }>
       <Box mb={2}>
         <Typography
-          variant={highlighted ? "h5" : "h6"}
-          className={highlighted ? "text-white" : classes.title}
+          variant={highlighted ? "h4" : "h6"}
+          style={highlighted ? {color: shadeColor(lesion.color, -0.5)} : {color: '#4b4b4b'}}
         >
-          {title}
+          {order}
         </Typography>
       </Box>
       <Box mb={2}>
         <Typography
-          variant={highlighted ? "h3" : "h4"}
+          variant={highlighted ? "h4" : "h5"}
           className={highlighted ? "text-white" : null}
         >
-          {pricing}
+          {lesion.headline}
         </Typography>
       </Box>
       {features.map((feature, index) => (
         <Box display="flex" alignItems="center" mb={1} key={index}>
-          <CheckIcon
-            style={{
-              color: highlighted
-                ? theme.palette.common.white
-                : theme.palette.primary.dark
-            }}
-          />
-          <Box ml={1}>
+          {/*<CheckIcon*/}
+          {/*  style={{*/}
+          {/*    color: highlighted*/}
+          {/*      ? theme.palette.common.white*/}
+          {/*      : theme.palette.primary.dark*/}
+          {/*  }}*/}
+          {/*/>*/}
+          {/*<Box ml={1}>*/}
             <Typography
               className={highlighted ? "text-white" : null}
               variant={highlighted ? "h6" : "body1"}
             >
-              {feature}
+              {lesion.text.substring(0, 100)}...
             </Typography>
-          </Box>
+          {/*</Box>*/}
         </Box>
       ))}
-    </div>
+    </div>:<div/>
   );
 }
 

@@ -17,7 +17,7 @@ export const lesions = [
         "El melanoma ocurre cuando las células productoras de pigmento que dan color a la piel se vuelven cancerosas.",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "0",
-    smDelay: "200"
+    smDelay: "0"
   },
   {
     color: "#c80000",
@@ -37,8 +37,8 @@ export const lesions = [
     text:
         "El carcinoma de células escamosas de la piel es una forma común de cáncer de piel que se desarrolla en las células escamosas que componen las capas media y externa de la piel. El carcinoma de células escamosas de la piel generalmente no es mortal, pero puede ser agresivo.",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "200",
-    smDelay: "200"
+    mdDelay: "400",
+    smDelay: "0"
   },
   {
     color: "#c85700",
@@ -48,7 +48,7 @@ export const lesions = [
       "Zona áspera y escamosa de la piel ocasionada por años de exposición solar. Se debe tratar por un médico, es una condición crónica que se puede convertir en cancer.",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "0",
-    smDelay: "0"
+    smDelay: "200"
   },
   {
     color: "#d6dd17",
@@ -57,8 +57,8 @@ export const lesions = [
     text:
         "Es una dermatosis relativamente frecuente, con presentación clínica en determinadas ocasiones, que puede llegar a la confusión con el melanoma. Se plantea que puede ser una lesión benigna en regresión. La dermatoscopia es de gran utilidad para la orientación diagnóstica.",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "400",
-    smDelay: "200"
+    mdDelay: "200",
+    smDelay: "0"
   },
 
   {
@@ -70,7 +70,7 @@ export const lesions = [
         "Los dermatofibromas son bultos pequeños de color rojo a marrón que se deben a una acumulación de colágeno, una proteína fabricada por las células que residen en el tejido blando bajo la piel. Es una condición muy común en la dermatología. Es benigno",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
     mdDelay: "400",
-    smDelay: "0"
+    smDelay: "200"
   },
 
   {
@@ -80,7 +80,7 @@ export const lesions = [
     text:
       "Los nevus son los “lunares”. Se producen porque se multiplican las células de la piel que producen la melanina. La melanina es la sustancia que da color a la piel y a las mucosas.",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "200",
+    mdDelay: "0",
     smDelay: "0"
   },
 
@@ -92,8 +92,8 @@ export const lesions = [
       "Afección cutánea benigna que se manifiesta como una mancha cerosa marrón, negra o morena.\n" +
         "La queratosis seborreica es una de las neoplasias de la piel no cancerosas más comunes en los adultos de edad avanzada",
     icon: <WarningIcon style={{ fontSize: iconSize }} />,
-    mdDelay: "0",
-    smDelay: "0"
+    mdDelay: "200",
+    smDelay: "200"
   },
 
   {
